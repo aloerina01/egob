@@ -1,0 +1,25 @@
+{
+  "name": "egob",
+  "version": "1.0.0",
+  "description": "Ego B!",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/aloerina01/egob.git"
+  },
+  "author": "aloerina",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aloerina01/egob/issues"
+  },
+  "homepage": "https://github.com/aloerina01/egob#readme",
+  "devDependencies": {
+    "webpack": "^2.3.3"
+  },
+  "dependencies": {
+    "superagent": "^3.5.2"
+  }
+}
