@@ -6,8 +6,8 @@ module.exports = {
     'main': __dirname + '/js/main.js'
   },
   output: {
-    path: __dirname + '/dist',
-    filename: './js/[name].js'
+    path: __dirname + '/public',
+    filename: './[name].js'
   },
   module: {
     rules: [

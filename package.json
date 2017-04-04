@@ -2,9 +2,9 @@
   "name": "egob",
   "version": "1.0.0",
   "description": "Ego B!",
-  "main": "main.js",
   "scripts": {
-    "test": "echo test"
+    "test": "echo test",
+    "start": "firebase serve"
   },
   "repository": {
     "type": "git",
