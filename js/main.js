@@ -1,5 +1,6 @@
 import request from 'superagent';
 import dialogPolyfill from 'dialog-polyfill';
+import Chart from 'chart.js';
 
 let fetchTotal = (urls) => {
     request
@@ -30,7 +31,29 @@ let addWebsite = (url) => {
     // add
 }
 
-(function(){
+(function() {
+    let ctx = document.getElementById("bookmark-chart").getContext("2d");
+    let data = {
+        datasets: [
+            {
+                data: [70, 30],
+                backgroundColor: [
+                    "#FF6384",
+                    "#dddddd"
+                ],
+                hoverBackgroundColor: [
+                    "#FF6384",
+                    "#dddddd"
+                ]
+            }
+        ]
+    }
+    let bookmarkChart = new Chart(ctx, {
+        type: 'pie',
+        data: data,
+        options: { cutoutPercentage: 97, padding: 10 }
+    });
+
     if (!dialog.showModal) {
         dialogPolyfill.registerDialog(dialog);
     }
