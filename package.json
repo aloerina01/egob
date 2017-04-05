@@ -4,7 +4,8 @@
   "description": "Ego B!",
   "scripts": {
     "test": "echo test",
-    "start": "firebase serve"
+    "start": "firebase serve",
+    "build": "webpack"
   },
   "repository": {
     "type": "git",
@@ -17,9 +18,13 @@
   },
   "homepage": "https://github.com/aloerina01/egob#readme",
   "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.0",
     "webpack": "^2.3.3"
   },
   "dependencies": {
+    "dialog-polyfill": "^0.4.7",
     "superagent": "^3.5.2"
   }
 }

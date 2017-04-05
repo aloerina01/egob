@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="dialog-polyfill.css" />
     <link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.indigo-pink.min.css">
     <script src="https://storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -19,22 +20,50 @@
         <span class="mdl-layout-title">Ego B!</span>
         <!-- Add spacer, to align navigation to the right -->
         <div class="mdl-layout-spacer"></div>
-        <!-- Navigation. We hide it in small screens. -->
-        <nav class="mdl-navigation mdl-layout--large-screen-only">
-            <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
+        <!-- right button -->
+        <button id="demo-menu-lower-right" class="mdl-button mdl-js-button mdl-button--icon">
+            <i class="material-icons">more_vert</i>
+        </button>
+        <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+            <li id="add-website-button" class="mdl-menu__item">自分のWebサイトを追加する</li>
+        </ul>
         </div>
     </header>
+    
+    <!-- slide in menu -->
     <div class="mdl-layout__drawer">
         <span class="mdl-layout-title">Ego B!</span>
         <nav class="mdl-navigation">
         <a class="mdl-navigation__link" href="">Link</a>
         </nav>
     </div>
+    
+    <!-- main contents -->
     <main class="mdl-layout__content">
-        <div class="page-content"><!-- Your content goes here --></div>
+        <div class="page-content">
+
+            <h3 id="total">5</h3>
+
+
+        </div>
     </main>
     </div>
+
+    <!-- dialog -->
+    <dialog id="add-website-dialog" class="mdl-dialog">
+    <h6 class="mdl-dialog__title">Webサイトを追加する</h6>
+    <div class="mdl-dialog__content">
+      <div class="mdl-textfield mdl-js-textfield">
+        <input class="mdl-textfield__input" type="text" id="sample1">
+        <label class="mdl-textfield__label" for="sample1">Your site URL</label>
+    </div>
+    </div>
+    <div class="mdl-dialog__actions">
+      <button type="button" id="dialog-submit-button" class="mdl-button">OK</button>
+      <button type="button" id="dialog-cancel-button" class="mdl-button close">Cancel</button>
+    </div>
+  </dialog>
+    
     
     
     <script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
@@ -50,6 +79,6 @@
     };
     firebase.initializeApp(config);
     </script>
-    <script src="./dist/main.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>
