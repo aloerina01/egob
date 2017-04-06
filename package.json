@@ -26,6 +26,7 @@
   "dependencies": {
     "chart.js": "^2.5.0",
     "dialog-polyfill": "^0.4.7",
+    "es6-promise": "^4.1.0",
     "superagent": "^3.5.2"
   }
 }

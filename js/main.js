@@ -1,16 +1,20 @@
 import request from 'superagent';
+import { Promise } from 'es6-promise'
 import dialogPolyfill from 'dialog-polyfill';
 import Chart from 'chart.js';
 
 let fetchTotal = (urls) => {
-    request
-    .get('http://api.b.st-hatena.com/entry.counts')
-    .query({ url: urls[0] })
-    .query({ url: urls[1] })
-    .withCredentials()
-    .end((err, res) => {
-        console.log(res);
+    return new Promise((resolve, reject) => {
+        request
+        .get('http://api.b.st-hatena.com/entry.counts')
+        .query({ url: urls[0] })
+        .query({ url: urls[1] })
+        .withCredentials()
+        .end((err, res) => {
+            resolve(75);
+        });
     });
+    
 };
 
 let urls = [
@@ -31,12 +35,12 @@ let addWebsite = (url) => {
     // add
 }
 
-(function() {
+let renderGraph = (percentage) => {
     let ctx = document.getElementById("bookmark-chart").getContext("2d");
     let data = {
         datasets: [
             {
-                data: [70, 30],
+                data: [percentage, 100 - percentage],
                 backgroundColor: [
                     "#FF6384",
                     "#dddddd"
@@ -53,6 +57,19 @@ let addWebsite = (url) => {
         data: data,
         options: { cutoutPercentage: 97, padding: 10 }
     });
+}
+
+let renderCurrentCount = (count) => {
+    document.querySelector('#current-count').innerHTML = count;
+}
+
+(function() {
+    fetchTotal(urls).then((count) => {
+        renderCurrentCount(count);
+        // TODO: calculate percentage
+        renderGraph(count);
+    });
+    
 
     if (!dialog.showModal) {
         dialogPolyfill.registerDialog(dialog);
