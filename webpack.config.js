@@ -3,7 +3,7 @@ var path = require('path');
 
 module.exports = {
   entry: {
-    'main': __dirname + '/js/main.js'
+    'main': __dirname + '/src/main.js'
   },
   output: {
     path: __dirname + '/public',
