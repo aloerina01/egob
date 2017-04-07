@@ -14,7 +14,7 @@ export default {
         return {
             
         }
-    }
+    },
     created: function() {
         this.$nextTick(() => {
             this.initialize();
