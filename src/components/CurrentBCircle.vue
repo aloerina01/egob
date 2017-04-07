@@ -9,7 +9,7 @@
 import ProgressBar from 'progressbar.js';
 
 export default {
-    name: 'current-b-graph',
+    name: 'current-b-circle',
     data: function() {
         return {
             

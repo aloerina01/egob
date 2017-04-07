@@ -4,7 +4,7 @@
         <router-view class="view"></router-view>
     </transition>
 </div>
-</teamplate>
+</template>
 
 <script>
 export default {
