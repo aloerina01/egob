@@ -14,17 +14,27 @@ export default {
         'b-rank-list': BRankList
     },
     created: function() {
-        // this.bookmarks = BookMarks;
         this.bookmarks = getBookmarksModel();
+        this.bookmarks.onUpdateCurrentBookmarks((current) => {
+            this.current = current;
+        });
+        this.bookmarks.onUpdateTotalBookmarks((total) => {
+            this.total = total;
+        });
+        this.test(this);
     },
-    computed: function() {
+    data: function() {
         return {
-            total: this.bookmarks.total
+            bookmarks: undefined,
+            current: 0,
+            total: 0
         }
     },
     methods: {
-        test: function() {
-            this.bookmarks.total = 35;
+        test: function(that) {
+            setTimeout(() => {
+                that.bookmarks.totalBookmarks = 59;
+            }, 1000);
         }
     }
 }

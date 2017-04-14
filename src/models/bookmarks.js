@@ -5,8 +5,8 @@ const EVENT_UPDATE_TOTAL_B = 'update-total-b';
 
 class Bookmarks {
     constructor() {
-        this._currentBookmarks;
-        this._totalBookmarks;
+        this._currentBookmarks = 0;
+        this._totalBookmarks = 0;
         this._eventEmitter = EventEmitter.create();
     }
     set currentBookmarks(val) {
